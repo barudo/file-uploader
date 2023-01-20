@@ -14,7 +14,7 @@
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/timoxley/file-uploader.git"
+    "url": "git+ssh://git@github.com/barudo/file-uploader.git"
   },
   "dependencies": {
     "connect-busboy": "0.0.2",
@@ -31,9 +31,9 @@
   "scripts": {
     "test": "tape tests"
   },
-  "homepage": "https://github.com/timoxley/file-uploader",
+  "homepage": "https://github.com/barudo/file-uploader",
   "bugs": {
-    "url": "https://github.com/timoxley/file-uploader/issues"
+    "url": "https://github.com/barudo/file-uploader/issues"
   },
   "directories": {
     "test": "tests"

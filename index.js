@@ -21,7 +21,7 @@ function getFormDataForPost(fields, files) {
     return returnPart
   }
   function encodeFilePart(boundary,type,name,filename) {
-    var returnPart = "--" + boundary + "\r\n"
+    var returnPart = "\r\n--" + boundary + "\r\n"
     returnPart += "Content-Disposition: form-data; name=\"" + name + "\"; filename=\"" + filename + "\"\r\n"
     returnPart += "Content-Type: " + type + "\r\n\r\n"
     return returnPart
@@ -32,18 +32,18 @@ function getFormDataForPost(fields, files) {
   if (fields) {
     for (var key in fields) {
       var value = fields[key]
-      postData.push(new Buffer(encodeFieldPart(boundary, key, value), 'ascii'))
+      postData.push(Buffer.from(encodeFieldPart(boundary, key, value), 'ascii'))
     }
   }
   if (files) {
     for (var key in files) {
       var value = files[key]
-      postData.push(new Buffer(encodeFilePart(boundary, value.type, value.keyname, value.valuename), 'ascii'))
+      postData.push(Buffer.from(encodeFilePart(boundary, value.type, value.keyname, value.valuename), 'ascii'))
 
-      postData.push(new Buffer(value.data, 'utf8'))
+      postData.push(Buffer.from(value.data, 'utf8'))
     }
   }
-  postData.push(new Buffer("\r\n--" + boundary + "--"), 'ascii')
+  postData.push(Buffer.from(("\r\n--" + boundary + "--"), 'ascii'))
   var length = 0
 
   for(var i = 0; i < postData.length; i++) {
