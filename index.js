@@ -1,7 +1,7 @@
 var Step = require('step'),
     fs = require('fs'),
     path = require('path'),
-    http = require('http'),
+    https = require('https'),
     mime = require('mime')
 
 /**
@@ -88,7 +88,7 @@ function postData(fields, files, options, headers, callback) {
     method: options.method || 'POST',
     headers: totalheaders
   }
-  var request = http.request(requestOptions, function(response) {
+  var request = https.request(requestOptions, function(response) {
     response.body = ''
     response.setEncoding(options.encoding)
     response.on('data', function(chunk){
